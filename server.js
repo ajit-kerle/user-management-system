@@ -4,12 +4,14 @@ const morgan=require('morgan')
 const bodyparser=require('body-parser')
 const path=require('path')
 const app=express()
+const coonectDB=require('./server/Database/connection')
 const route=require('./server/routes/router')
 
 // log request in console
 app.use(morgan('tiny'))
 
-
+// mongodb connection
+coonectDB()
 
 dotenv.config({path:'config.env'})
 const PORT=process.env.PORT||8080
