@@ -22,7 +22,8 @@ const createUser=async (req,res)=>{
 
     // save user in database
     let userCreated=await Userdb.create(user)
-    res.status(201).send({data:userCreated})
+    res.redirect("/add-user")
+    // res.status(201).send({data:userCreated})
    }catch(err){
     res.status(500).send({message:err.message})
    }
